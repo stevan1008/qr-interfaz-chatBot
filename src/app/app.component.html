@@ -1,0 +1,12 @@
+<router-outlet></router-outlet>
+<button (click)="start()">Iniciar</button>
+
+<h1 *ngIf="unable">Unable to connect to the server</h1>
+
+<h1 *ngIf="!ready && qr === '' && !begin && !unable">Trying to connect</h1>
+
+<qrcode *ngIf="!ready && qr !== '' && !authenticated" [qrdata]="qr"  [width]="600" [errorCorrectionLevel]="'M'" [allowEmptyString]="true"></qrcode>
+
+<h1 *ngIf="authenticated && !ready">Authenticated</h1>
+
+<h1 *ngIf="ready">Client is ready</h1>
